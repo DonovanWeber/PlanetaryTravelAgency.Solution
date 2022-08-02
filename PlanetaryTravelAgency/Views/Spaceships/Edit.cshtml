@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PlanetaryTravelAgency.Models.Spaceship
+
+<h2>Edit</h2>
+
+<h4>Edit this Spaceship: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.SpaceshipId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)
+
+  @Html.LabelFor(model => model.Fuel)
+  @Html.EditorFor(model => model.Fuel)
+
+  @Html.LabelFor(model => model.Capacity)
+  @Html.EditorFor(model => model.Capacity)
+
+  @Html.Label("Select Planet")
+  @Html.DropDownList("PlanetId")
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

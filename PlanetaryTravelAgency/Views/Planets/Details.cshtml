@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PlanetaryTravelAgency.Models.Planet;
+
+<h2>Planet Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>There are no flights planned for this planet at this time.</p>
+}
+else
+{
+  <h4>Flight to this planet:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Spaceship.Name</li>
+  }
+  </ul>
+}
+<h4>@Html.DisplayNameFor(model => model.Distance): @Html.DisplayFor(model => model.Distance)miles</h4>
+<h4>@Html.DisplayNameFor(model => model.Weather)Description: @Html.DisplayFor(model => model.Weather)</h4>
+<h5>@Html.DisplayNameFor(model => model.Temperature): @Html.DisplayFor(model => model.Temperature)Fahrenheitt</h5>
+<h5>@Html.DisplayNameFor(model => model.Radiation): @Html.DisplayFor(model => model.Radiation)Rads</h5>
+
+<p>@Html.ActionLink("Back to Planets", "Index")</p>
+<p>@Html.ActionLink("Edit planet", "Edit", new { id = Model.PlanetId })</p>
+<p>@Html.ActionLink("Delete planet", "Delete", new { id = Model.PlanetId })</p>

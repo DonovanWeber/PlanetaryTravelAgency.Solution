@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PlanetaryTravelAgency.Models.Spaceship
+
+<h2>Add a Planet</h2>
+
+<h4>Add a Planet to this Spaceship: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.SpaceshipId)
+
+  @Html.Label("Select Planet")
+  @Html.DropDownList("PlanetId")
+
+  <input type="submit" value="Save" />
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+}

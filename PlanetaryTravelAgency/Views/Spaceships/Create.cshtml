@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PlanetaryTravelAgency.Models.Spaceship
+
+<h4>Add a new Spaceship</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  @Html.LabelFor(model => model.Fuel)
+  @Html.TextBoxFor(model => model.Fuel)
+
+  @Html.LabelFor(model => model.Capacity)
+  @Html.TextBoxFor(model => model.Capacity)
+
+
+  @Html.Label("Select Planet Destination")
+  @Html.DropDownList("PlanetId")
+
+  <input type="submit" value="Add new Spaceship" />
+}
+<p>@Html.ActionLink("Show all Spaceships", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
