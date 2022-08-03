@@ -1,3 +1,5 @@
+
+
 namespace PlanetaryTravelAgency.Models
 {
   public class PlanetSpaceship
