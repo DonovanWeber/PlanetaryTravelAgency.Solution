@@ -41,7 +41,7 @@ namespace PlanetaryTravelAgency.Controllers
       _db.SaveChanges();
       if(PlanetId != 0)
       {
-        _db.PlanetSpaceship.Add(new PlanetSpaceship() { PlanetId = PlanetId, SpaceshipId = spaceship.SpaceshipId});
+        _db.PlanetSpaceships.Add(new PlanetSpaceship() { PlanetId = PlanetId, SpaceshipId = spaceship.SpaceshipId});
         _db.SaveChanges();
       }
       ViewBag.PlanetId = new SelectList(_db.Planets, "PlanetId", "Name");
@@ -73,7 +73,7 @@ namespace PlanetaryTravelAgency.Controllers
 
       else if(PlanetId != 0)
       {
-        _db.PlanetSpaceship.Add(new PlanetSpaceship(){ PlanetId = PlanetId, SpaceshipId = spaceship.SpaceshipId});
+        _db.PlanetSpaceships.Add(new PlanetSpaceship(){ PlanetId = PlanetId, SpaceshipId = spaceship.SpaceshipId});
       }
       _db.Entry(spaceship).State = EntityState.Modified;
       _db.SaveChanges();
@@ -128,8 +128,8 @@ namespace PlanetaryTravelAgency.Controllers
       [HttpPost]
       public ActionResult DeletePlanet(int joinId)
       {
-        var joinEntry = _db.PlanetSpaceship.FirstOrDefault(entry => entry.PlanetSpaceshipId == joinId);
-        _db.PlanetSpaceship.Remove(joinEntry);
+        var joinEntry = _db.PlanetSpaceships.FirstOrDefault(entry => entry.PlanetSpaceshipId == joinId);
+        _db.PlanetSpaceships.Remove(joinEntry);
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
