@@ -4,9 +4,9 @@
 
 @model PlanetaryTravelAgency.Models.Planet;
 <div id= Header>
-<h2>Planet Details</h2>
+<h2 id=HeaderText>Planet Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3 id=SpaceText>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <div>
 <div id= MainBody>
 @if(@Model.JoinEntities.Count == 0)
@@ -32,3 +32,14 @@ else
 <p>@Html.ActionLink("Edit planet", "Edit", new { id = Model.PlanetId })</p>
 <p>@Html.ActionLink("Delete planet", "Delete", new { id = Model.PlanetId })</p>
 </div>
+
+  <div class='light x1'></div>
+  <div class='light x2'></div>
+  <div class='light x3'></div>
+  <div class='light x4'></div>
+  <div class='light x5'></div>
+  <div class='light x6'></div>
+  <div class='light x7'></div>
+  <div class='light x8'></div>
+  <div class='light x9'></div>
+  

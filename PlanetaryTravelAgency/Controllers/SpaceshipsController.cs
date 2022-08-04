@@ -25,6 +25,7 @@ namespace PlanetaryTravelAgency.Controllers
     public ActionResult Create()
     {
       // ViewBag.SpaceshipId = new SelectList(_db.SpaceShips, "SpaceshipId", "Name");
+      ViewBag.PlanetId = new SelectList(_db.Planets, "PlanetId", "Name");
       return View();
     }
     

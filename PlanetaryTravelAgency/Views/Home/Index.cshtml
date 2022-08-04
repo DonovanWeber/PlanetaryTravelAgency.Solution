@@ -3,19 +3,57 @@
 }
 <div id=Header>
 <h1 id= HeaderText>Star Tours InterGalactic Travel!</h1>
-<p>There are no limits to where we can go! Come, fly Star Tours InterGalactic Travel</p>
+<p id=SpaceText>There are no limits to where we can go! Come, fly Star Tours InterGalactic Travel</p>
 </div>
 
 <div id=IndexNav>
 <p>@Html.ActionLink("See all Spaceships!", "Index", "Spaceships")</p> <p>@Html.ActionLink("See all Planets", "Index", "Planets")</p>
 </div>
 
-@* <!-- <ul>
-<li>@planet.hdurl</li>
-</ul> --> *@
+<div id=SpacePort>
+  <img class="mySlides" src='https://i.pinimg.com/originals/45/9a/de/459adea4577aac6ccc6f0de0fa165544.jpg' width= 800 px alt="image of a spaceport"/>
+  <img class="mySlides" src='https://wallpaperaccess.com/full/1224372.jpg' width= 800 px alt="image of a spaceport"/>
 
-<div id=IndexBody>
+
+<div class="w3-center">
+  <div class="w3-section">
+    <button class="navButton" onclick="plusDivs(-1)">❮ Prev</button>
+    <button class="navButton" onclick="plusDivs(1)">Next ❯</button>
+  </div>
+  <button class="numButton" onclick="currentDiv(1)">1</button> 
+  <button class="numButton" onclick="currentDiv(2)">2</button> 
 </div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-red", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-red";
+}
+</script>
+</div>
+
   <div class='light x1'></div>
   <div class='light x2'></div>
   <div class='light x3'></div>
