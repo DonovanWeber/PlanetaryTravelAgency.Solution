@@ -3,12 +3,14 @@
 }
 
 @model PlanetaryTravelAgency.Models.Planet
-
-<h2>Are you sure you want to delete this?</h2>
-
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" />
-}
-@Html.ActionLink("Back to List", "Index")
+<div id=Header>
+  <h2>Are you sure you want to delete this?</h2>
+</div>
+<div id=MainBody>
+  @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+  @using (Html.BeginForm())
+  {
+      <input type="submit" value="Delete" />
+  }
+  @Html.ActionLink("Back to List", "Index")
+</div>

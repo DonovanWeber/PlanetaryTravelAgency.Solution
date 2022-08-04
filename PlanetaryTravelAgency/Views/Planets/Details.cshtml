@@ -3,11 +3,12 @@
 }
 
 @model PlanetaryTravelAgency.Models.Planet;
-
+<div id= Header>
 <h2>Planet Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-
+<div>
+<div id= MainBody>
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>There are no flights planned for this planet at this time.</p>
@@ -30,3 +31,4 @@ else
 <p>@Html.ActionLink("Back to Planets", "Index")</p>
 <p>@Html.ActionLink("Edit planet", "Edit", new { id = Model.PlanetId })</p>
 <p>@Html.ActionLink("Delete planet", "Delete", new { id = Model.PlanetId })</p>
+</div>

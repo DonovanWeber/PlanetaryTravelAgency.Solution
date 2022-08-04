@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PlanetaryTravelAgency.Models;
 
 namespace PlanetaryTravelAgency.Controllers
 {
@@ -6,10 +7,15 @@ namespace PlanetaryTravelAgency.Controllers
     {
 
       [HttpGet("/")]
-      public ActionResult Index()
+      public IActionResult Index()
       {
         return View();
       }
 
+      // public IActionResult Photo()
+      // {
+      //   var randomPhoto = Planet.GetPlanets("I4TdB92OHOGDBmWf6FesyTLJM8MrW7paWnKLHpMi");
+      //   return View( randomPhoto);
+      // }
     }
 }

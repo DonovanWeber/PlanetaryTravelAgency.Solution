@@ -3,33 +3,36 @@
 }
 
 @model PlanetaryTravelAgency.Models.Planet
-
+<div id=Header>
 <h2>Edit</h2>
 
 <h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+</div>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.PlanetId)
+<div id=MainBody>
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.PlanetId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
 
-  @Html.LabelFor(model => model.Distance)
-  @Html.TextBoxFor(model => model.Distance)
+    @Html.LabelFor(model => model.Distance)
+    @Html.TextBoxFor(model => model.Distance)
 
-  @Html.LabelFor(model => model.Weather)
-  @Html.TextBoxFor(model => model.Weather)
+    @Html.LabelFor(model => model.Weather)
+    @Html.TextBoxFor(model => model.Weather)
 
-  @Html.LabelFor(model => model.Temperature)
-  @Html.TextBoxFor(model => model.Temperature)
+    @Html.LabelFor(model => model.Temperature)
+    @Html.TextBoxFor(model => model.Temperature)
 
-  @Html.LabelFor(model => model.Radiation)
-  @Html.TextBoxFor(model => model.Radiation)
+    @Html.LabelFor(model => model.Radiation)
+    @Html.TextBoxFor(model => model.Radiation)
 
-  @Html.Label("Select Spaceship")
-  @Html.DropDownList("SpaceshipId")
+    @Html.Label("Select Spaceship")
+    @Html.DropDownList("SpaceshipId")
 
   <input type="submit" value="Save" />
-}
-<p>@Html.ActionLink("Back to list", "Index")</p>
+  }
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>

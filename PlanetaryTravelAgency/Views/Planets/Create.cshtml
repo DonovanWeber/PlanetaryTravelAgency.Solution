@@ -3,28 +3,31 @@
 }
 
 @model PlanetaryTravelAgency.Models.Planet
-
-<h4>Add a new planet</h4>
+<div id=Header>
+  <h4>Add a new planet</h4>
+</div>
+<div id=CreateBody>
 @using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-
-  @Html.LabelFor(model => model.Distance)
-  @Html.TextBoxFor(model => model.Distance)
-
-  @Html.LabelFor(model => model.Weather)
-  @Html.TextBoxFor(model => model.Weather)
-
-  @Html.LabelFor(model => model.Temperature)
-  @Html.TextBoxFor(model => model.Temperature)
-
-  @Html.LabelFor(model => model.Radiation)
-  @Html.TextBoxFor(model => model.Radiation)
-
-  @*  @Html.Label("Select spaceship")
-  @Html.DropDownList("SpaceshipId") *@
-
-  <input type="submit" value="Add new PLanet" class="btn btn-default" />
-}
-<p>@Html.ActionLink("Show all Planets", "Index")</p>
+  {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+    @Html.LabelFor(model => model.Distance)
+    @Html.TextBoxFor(model => model.Distance)
+    <br>
+    @Html.LabelFor(model => model.Weather)
+    @Html.TextBoxFor(model => model.Weather)
+    <br>
+    @Html.LabelFor(model => model.Temperature)
+    @Html.TextBoxFor(model => model.Temperature)
+    <br>
+    @Html.LabelFor(model => model.Radiation)
+    @Html.TextBoxFor(model => model.Radiation)
+    <br>
+    @*  @Html.Label("Select spaceship")
+    @Html.DropDownList("SpaceshipId") *@
+    <br>
+    <input type="submit" value="Add new PLanet" class="btn btn-default" />
+  }
+  <p>@Html.ActionLink("Show all Planets", "Index")</p>
+</div>

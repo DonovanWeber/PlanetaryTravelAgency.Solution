@@ -53,13 +53,28 @@ namespace PlanetaryTravelAgency.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Planet planet)
+    public ActionResult Edit(Planet planet, int SpaceshipId)
     {
+      var thisSpaceship = _db.Spaceships
+        .Include(planet => planet.JoinEntities)
+        .ThenInclude(join => join.Spaceship)
+        .FirstOrDefault(spaceship => spaceship.SpaceshipId == SpaceshipId);
+      if(thisSpaceship.SpaceshipId == SpaceshipId)
+      {
+      _db.Entry(planet).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+      }
+
+      else if(SpaceshipId !=0)
+      {
+        _db.PlanetSpaceship.Add(new PlanetSpaceship(){ SpaceshipId = SpaceshipId, PlanetId = planet.PlanetId});
+      }
       _db.Entry(planet).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    
     public ActionResult Delete(int id)
     {
       var thisPlanet = _db.Planets.FirstOrDefault(planet => planet.PlanetId == id);

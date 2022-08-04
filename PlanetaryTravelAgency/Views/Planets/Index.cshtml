@@ -2,7 +2,12 @@
   Layout = "_Layout";
 }
 @using PlanetaryTravelAgency.Models;
+
+<div id=Header>
 <h1>Planets we fly to:</h1>
+</div>
+
+<div id=MainBody>
 @if (@Model.Count == 0)
 {
   <h3>No planets have been added yet!</h3>
@@ -15,3 +20,13 @@
 </ul>
 <p>@Html.ActionLink("Add new planet", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>
+
+<div class="container demo">
+   <div class="content">
+      <div id="large-header" class="large-header">
+         <canvas id="demo-canvas"></canvas>
+         <h1 class="main-title"><span class="thin">Explore</span> Space</h1>
+      </div>
+   </div>
+</div>

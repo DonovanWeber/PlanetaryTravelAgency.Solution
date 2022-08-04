@@ -3,9 +3,10 @@
 }
 
 @model PlanetaryTravelAgency.Models.Spaceship
-
+<div id= Header>
 <h2>Add a Planet</h2>
-
+</div>
+<div id= CreateBody>
 <h4>Add a Planet to this Spaceship: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
@@ -17,5 +18,6 @@
 
   <input type="submit" value="Save" />
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
 }
+<p>@Html.ActionLink("Back to list", "Index")</p>
+</div>

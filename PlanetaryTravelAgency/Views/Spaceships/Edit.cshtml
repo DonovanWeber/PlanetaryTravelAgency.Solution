@@ -3,30 +3,41 @@
 }
 
 @model PlanetaryTravelAgency.Models.Spaceship
-
+<div id=Header>
 <h2>Edit</h2>
-
+</div>
+<div id=CreateBody>
 <h4>Edit this Spaceship: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.SpaceshipId)
-
+  <br>
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
-
+  <br>
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)
-
+  <br>
   @Html.LabelFor(model => model.Fuel)
   @Html.EditorFor(model => model.Fuel)
-
+  <br>
   @Html.LabelFor(model => model.Capacity)
   @Html.EditorFor(model => model.Capacity)
+  <br>
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Ship does not have any Planetary Routes planned</p>
+} else
+{
+  <h4>Planets the Ship flies to:</h4>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li>@join.Planet.Name</li>
 
-  @Html.Label("Select Planet")
-  @Html.DropDownList("PlanetId")
-
+  } 
   <input type="submit" value="Save" />
+} 
 }
 <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
